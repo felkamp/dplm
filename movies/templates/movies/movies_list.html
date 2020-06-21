@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <div class="search-container">
+        <ul class="search-list">
+            {% for movie in movies %}
+                <li class="search-list__item">
+                    <h3 class="search-title">
+                        <a href="{{movie.get_absolute_url}}">
+                            {{movie.title}}
+                        </a>
+                    </h3>
+                    <hr>
+                    <div class="vote-average">
+                        {{movie.vote_average|floatformat}}
+                    </div>
+                    <div class="short-descr">
+                        <a href="{{movie.get_absolute_url}}">
+                            <img class="small-img" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="">
+                        </a>
+                        <p class="search-overview">
+                            {{movie.overview|truncatechars:390}}
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="genres-block">
+                        {% for genre in movie.genres.all %}
+                            <span class="genre genre_white-bg">
+                                <a href="{{genre.get_absolute_url}}">
+                                    {{genre.name}}
+                                </a>
+                            </span>
+                        {% endfor %}
+                    </div>
+                </li>
+            {% endfor%}
+        </ul>
+    </div>
+{% endblock %}
