@@ -1,10 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+    {% load static %}
+    <section class="movie-info">
+        {% if movie.poster_path%}
+            <img width="300px" height="450px" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="">
+        {% else %}
+            <img src="/static/img/no-image.png" alt="">
+        {% endif %}
+        <div class="movie-background" style="background-image: url(https://image.tmdb.org/t/p/w500{{movie.backdrop_path}})">
+            <div style="position: relative; height:450px; background-size: 100%; background-image: linear-gradient(rgba(225, 225, 225,0.9) 150px, rgba(196, 191, 191, 0.8) 100%); background-size: contain; ">
+                <div class="movie-description">
+                    <h2 class="movie-title-descr">
+                        {{movie.title}} ({{movie.release_date.year}})
+                    </h2>
+                        {% if movie.tagline %}
+                            <i class="movie-tagline">
+                                {{movie.tagline}}
+                            </i>
+                        {% endif %}
+                    <div class="movie-rating">
+                        <p class="rating-value">
+                            {{movie.vote_average|floatformat}}
+                        </p>
+                        <span>
+                            (голосов: {{movie.vote_count}})
+                        </span>
+                    </div>
+                    <p class="movie-overview">
+                        {% if movie.overview|length > 700 %}
+                            {{movie.overview|truncatechars:700}}
+                        {% else %}
+                            {{movie.overview}}
+                        {% endif %}
+                    </p>
+                    {% for genre in movie.genres.all %}
+                        <span class="genre">
+                            <a href="">
+                                {{genre.name}}
+                            </a>
+                        </span>
+                    {% endfor %}
+                </div>
+                {% if user.is_authenticated %}
+                    <div class="user-rating">
+                        Ваш рейтинг
+                        <input type="hidden" id="user_rating" name="variable" value="{{ user_rating }}">
+                        <form name="ratingScale" action="{% url 'get_rating_url' %}" method="GET">
+                            {% csrf_token %}
+                            <input type="hidden" name="rating_value" id="id_rating_value" value="">
+                            <input type="hidden" name="movie_id" value="{{movie.id}}">
+                            <input type="hidden" name="user_id" value="{{user.id}}">
+                            <div class="stars">
+                                <div id="wrap">
+                                    <span class="fa fa-star" onclick="s(1)"></span>
+                                    <span class="fa fa-star" onclick="s(2)"></span>
+                                    <span class="fa fa-star" onclick="s(3)"></span>
+                                    <span class="fa fa-star" onclick="s(4)"></span>
+                                    <span class="fa fa-star" onclick="s(5)"></span>
+                                    <span class="fa fa-star" onclick="s(6)"></span>
+                                    <span class="fa fa-star" onclick="s(7)"></span>
+                                    <span class="fa fa-star" onclick="s(8)"></span>
+                                    <span class="fa fa-star" onclick="s(9)"></span>
+                                    <span class="fa fa-star" onclick="s(10)"></span>
+                                </div>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'js/rating.js' %}"></script>
+    {% if similar_movies|length %}
+        <h2 class="section-title">Похожие фильмы</h2>
+        <section class="regular slider">
+            {% for movie in similar_movies %}
+            <div class="movie-wrapper">
+                <div class="vote-average">
+                    {{ movie.vote_average|floatformat }}
+                </div>
+                <a href="{{movie.get_absolute_url}}">
+                    {% if movie.poster_path%}
+                        <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="">
+                    {% else %}
+                        <img src="/static/img/no-image.png" alt="">
+                    {% endif %}
+                </a>
+            </div>
+            {% endfor %}
+        </section>
+    {% endif %}
+{% endblock %}
