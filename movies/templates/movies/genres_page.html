@@ -17,7 +17,7 @@
         <ul class="genres-list">
             {% for genre in genres %}
                 <li class="genre-item {{genre.slug}}">
-                    <a href="">
+                    <a href="{{genre.get_absolute_url}}">
                         {{genre.name}}
                     </a>
                 </li>
