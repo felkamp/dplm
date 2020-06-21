@@ -5,14 +5,17 @@
     {% block title %}
         <title>MoviesForMe</title>
     {% endblock %}
+    {% load static %}
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
 
     <header class="header">
         <nav class="navigation container">
             <a href="" class="header-logo">
-                <img src="" alt="логотип" class="">
+                <img src="{%static 'img/logo.png' %}" alt="логотип" class="">
             </a>
             <ul class="site-navigation">
                 {% block nav %}
