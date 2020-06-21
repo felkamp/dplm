@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
     {% if messages%}
         {% for message in messages %}
@@ -10,6 +10,7 @@
         {% endfor %}
     {% endif %}
 
+<div class="container">
     <h2 class="section-title">Новинки</h2>
     <section class="regular slider">
         {% for movie in new %}
@@ -44,4 +45,5 @@
             {% endfor %}
         </ul>
     </section>
+</div>
 {% endblock %}
