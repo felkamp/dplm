@@ -1,0 +1,127 @@
+.movie-image,
+.movie-info{
+    padding: 0;
+    margin: 0;
+}
+
+.movie-info{
+    margin-top: 15px;
+    display:flex;
+}
+
+.movie-background {
+    width: 900px;
+    background-size: 900px;
+    background-repeat: no-repeat;
+ }
+
+.movie-description{
+    padding: 30px 50px;
+    position: relative;
+}
+
+.movie-title-descr{
+    padding:0;
+    margin: 0;
+}
+
+.movie-rating{
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+
+.rating-value{
+    font-size: 40px;
+    font-style:bold;
+    background-color: #F8BB21;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.movie-overview{
+    padding-right: 50px;
+    line-height: 35px;
+}
+
+.genre{
+    cursor: pointer;
+    color: white;
+    background-color: #242424;
+    padding: 5px;
+    font-size: 16px;
+    margin-right: 5px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.genre_white-bg{
+    color: black;
+    background-color: white;
+}
+
+.genre:hover{
+    background-color: pink;
+}
+
+.genres-block{
+    margin: 10px 10px;
+    padding: 0;
+    margin-right: 0;
+    text-align: right;
+}
+
+.genre a{
+    color: white;
+}
+
+.genre a:visited{
+    color: white;
+}
+
+.genre_white-bg a{
+    color: black;
+}
+
+.genre_white-bg a:visited{
+    color: black;
+}
+.movie-wrapper{
+    position: relative;
+}
+
+.user-rating{
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+}
+
+.hidden{
+    display: none;
+}
+
+.stars{
+    width: 260px;
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: #242424;
+    cursor: pointer;
+}
+
+.fa-star{
+    color: white;
+    font-size: 50px;
+}
+
+.checked {
+    color: orange;
+}
+
+.star{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+ }
