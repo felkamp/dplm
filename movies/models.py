@@ -2,11 +2,12 @@ from django.db import models
 from django.shortcuts import reverse
 from django.utils.text import slugify
 from time import time
+import random
 
 
 def gen_slug(s):
     new_slug = slugify(s, allow_unicode=True)
-    return new_slug + '-' + str(int(time()))
+    return new_slug + '-' + str(int(time() + random.randrange(2, 50)))
 
 
 class Movie(models.Model):
