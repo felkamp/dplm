@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>MoviesForMe</title>
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navigation container">
+            <a href="" class="header-logo">
+                <img src="" alt="логотип" class="">
+            </a>
+            <ul class="site-navigation">
+                {% block nav %}
+                    <li>
+                        <a href="">Категории</a>
+                    </li>
+                    <li>
+                        <a href="">Топ-100</a>
+                    </li>
+                {% endblock %}
+            </ul>
+            <div class="topnav">
+                <div class="search-container">
+                    <form action="">
+                        <input type="text" placeholder="Поиск.." name="q">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <ul class="user-login">
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="">user: {{user.username}}</a>
+                    </li>
+                    <li>
+                        <a href="">Выйти</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="">Войти</a>
+                    </li>
+                    <li>
+                        <a href="">Регистрация</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

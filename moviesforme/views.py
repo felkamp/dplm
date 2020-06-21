@@ -1,5 +1,5 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import render
 
 
 def main_page(request):
-    pass
+    return render(request, 'base.html')
