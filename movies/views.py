@@ -15,3 +15,9 @@ def movie_page(request, slug):
 def genres_page(request):
     genres = Genre.objects.all().order_by("name")
     return render(request, 'movies/genres_page.html', context={'genres': genres})
+
+
+def genre_page(request, slug):
+    genre = Genre.objects.get(slug__iexact=slug)
+    movies = genre.movies.all().order_by("-vote_average", "-vote_count")[:50]
+    return render(request, 'movies/movies_list.html', context={'movies': movies})
