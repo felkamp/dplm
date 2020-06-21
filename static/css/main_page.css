@@ -1,0 +1,49 @@
+.movies-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 25px;
+    list-style: none;
+}
+
+.movies-list__item a{
+    color: black;
+}
+
+.movies-list__item{
+    width: 220px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.vote-average{
+    position: absolute;
+    background: #F8BB21;
+    border-radius: 30px;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    top: 10px;
+    left: -10px;
+    font-weight: bold;
+}
+
+.movie-title{
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.section-title{
+    color: black;
+}
+
+.release-date{
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    color: dimgray;
+}
