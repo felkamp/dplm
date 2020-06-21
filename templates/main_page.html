@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if messages%}
+        {% for message in messages %}
+            <div class="message">
+                <p>{{message}}</p>
+                <img src="{% static 'img/success_login.gif' %}">
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <h2 class="section-title">Новинки</h2>
+    <section class="regular slider">
+        {% for movie in new %}
+            <div class="movie-wrapper">
+                <a href="{{movie.get_absolute_url}}">
+                    <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+                </a>
+            </div>
+        {% endfor%}
+    </section>
+
+    <section class="popular-movies">
+        <h2 class="section-title">Популярное</h2>
+        <ul class="movies-list">
+            {% for movie in popular %}
+                <li class="movies-list__item">
+                    <div class="vote-average">
+                        {{movie.vote_average|floatformat}}
+                    </div>
+                    <a href="{{movie.get_absolute_url}}">
+                        <img width="220px" height="329px" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="">
+                    </a>
+                    <h3 class="movie-title">
+                        <a href="{{movie.get_absolute_url}}">
+                            {{movie.title}}
+                        </a>
+                    </h3>
+                    <span class="release-date">
+                        {{movie.release_date.year}}, {{movie.genres.first}}
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
