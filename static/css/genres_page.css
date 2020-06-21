@@ -1,0 +1,115 @@
+.genres-list{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style: none;
+
+}
+
+.genre-item{
+    text-transform: uppercase;
+    border-radius: 30px;
+    text-align: center;
+    width: 250px;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    background-color: #242424;
+    margin-bottom: 10px;
+    color: white;
+    cursor: pointer;
+
+    -moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.genre-item a{
+    color: white;
+}
+
+.genre-item a:visited{
+    color: white;
+}
+
+.genre-item:hover{
+    box-shadow: 0 0 10px rgba(250, 140, 140, 0.6);
+}
+
+.action{
+    background-image: url(/static/img/action.png);
+}
+
+.western{
+    background-image: url(/static/img/western.png);
+}
+
+.war{
+    background-image: url(/static/img/war.png);
+}
+
+.mystery{
+    background-image: url(/static/img/mystery.png);
+}
+
+.documentary{
+    background-image: url(/static/img/documentary.png);
+}
+
+.drama{
+    background-image: url(/static/img/drama.png);
+}
+
+.history{
+    background-image: url(/static/img/history.png);
+}
+
+.comedy{
+    background-image: url(/static/img/comedy.png);
+}
+
+.crime{
+    background-image: url(/static/img/crime.png);
+}
+
+.romance{
+    background-image: url(/static/img/romance.png);
+}
+
+.music{
+    background-image: url(/static/img/music.png);
+}
+
+.animation{
+    background-image: url(/static/img/animation.png);
+}
+
+.science-fiction{
+    background-image: url(/static/img/science-fiction.png);
+}
+
+.adventure{
+    background-image: url(/static/img/adventure.png);
+}
+
+.family{
+    background-image: url(/static/img/family.png);
+}
+
+.tv-movie{
+    background-image: url(/static/img/tv-movie.png);
+}
+
+.thriller{
+    background-image: url(/static/img/thriller.png);
+}
+
+.horror{
+    background-image: url(/static/img/horror.png);
+}
+
+.fantasy{
+    background-image: url(/static/img/fantasy.png);
+}
