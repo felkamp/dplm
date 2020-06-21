@@ -5,6 +5,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "moviesforme.settings")
 django.setup()
 
 from scripts.add_movies import add_movies
+from scripts.add_genres import add_genres
 import argparse
 
 
