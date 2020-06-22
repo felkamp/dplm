@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    {% if messages%}
+        {% for message in messages %}
+            <div class="message">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <section class="register">
+        <form class="box" action="" method="POST">
+            {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+            {% csrf_token %}
+            <h1>Вход</h1>
+            Введите логин
+            {{ form.username }}
+            Введите пароль
+            {{ form.password }}
+            <input type="submit" name="" value="Войти">
+            <p>
+                Нет аккаунта? <a href="{% url 'register_page_url' %}">Зарегистрироваться</a>
+                {{form.errors}}
+            </p>
+        </form>
+    </section>
+{% endblock %}
