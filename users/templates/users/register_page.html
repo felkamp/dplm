@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    <section class="register">
+        <form class="box" action="" method="POST">
+            {% csrf_token %}
+            <h1>Регистрация</h1>
+            Введите логин
+            {{ form.username }}
+            Введите пароль
+            {{ form.password }}
+            Введите пароль ещё раз
+            {{ form.password2 }}
+            <input type="submit" name="" value="Создать аккаунт">
+            <p>
+                Уже есть аккаунт? <a href="{% url 'login_page_url' %}">Войти</a>
+                {{form.errors}}
+            </p>
+        </form>
+    </section>
+{% endblock %}
