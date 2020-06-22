@@ -22,4 +22,5 @@ urlpatterns = [
     path('', main_page, name='main_page_url'),
     path('admin/', admin.site.urls),
     path('movies/', include('movies.urls')),
+    path('user/', include('users.urls'))
 ]
