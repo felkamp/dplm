@@ -11,10 +11,10 @@ def gen_slug(s):
 
 
 class Movie(models.Model):
-    title = models.CharField(max_length=150, db_index=True)
-    original_title = models.CharField(max_length=200)
-    tagline = models.CharField(max_length=150, blank=True)
-    slug = models.SlugField(max_length=150, blank=True)
+    title = models.CharField(max_length=200, db_index=True)
+    original_title = models.CharField(max_length=250)
+    tagline = models.CharField(max_length=250, blank=True)
+    slug = models.SlugField(max_length=200, blank=True)
     imdb_id = models.CharField(max_length=20)
     genres = models.ManyToManyField('Genre', blank=True, related_name='movies')
     keywords = models.ManyToManyField('Keyword', blank=True, related_name='movies')
