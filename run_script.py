@@ -7,6 +7,7 @@ django.setup()
 from scripts.add_movies import add_movies
 from scripts.add_genres import add_genres
 from scripts.add_users import add_users
+from scripts.add_ratings import add_ratings
 import argparse
 
 
