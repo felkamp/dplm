@@ -118,6 +118,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+LOGIN_REDIRECT_URL = 'main_page_url'
+LOGIN_URL = "login_page_url"
+
 PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.MD5PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
