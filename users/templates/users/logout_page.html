@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+    <div class="message">
+        <p>Вы вышли из аккаунта
+            <a href="{% url 'login_page_url' %}">
+                Войти снова
+            </a>
+        </p>
+        <img src="{% static 'gif/logout.gif' %}">
+    </div>
+{% endblock %}
