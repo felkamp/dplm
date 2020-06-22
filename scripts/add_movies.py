@@ -5,7 +5,7 @@ import json
 def add_movies():
     data = json.load(open('data/main_data.json', 'r', encoding='utf8'))
     step = 1
-    for value in data[10:]:
+    for value in data:
         print(step, '/', len(data))
         m = Movie(title=value['title'],
                   original_title=value['original_title'],
