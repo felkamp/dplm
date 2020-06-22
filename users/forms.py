@@ -1,4 +1,3 @@
-from django.db import models
 from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.models import User
@@ -23,10 +22,3 @@ class RegistrationForm(ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput())
-
-
-def get_username(self):
-    return "user" + self.username
-
-
-User.add_to_class("__str__", get_username)
