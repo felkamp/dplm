@@ -22,7 +22,7 @@ def add_ratings():
     ratings = []
     step = 1
     for line in open('data/ratings.dat', 'r', encoding='utf8'):
-
+        print(step, '/ 863435')
         rating_info = line.split('::')
         user_id = rating_info[0]
         movie_id = rating_info[1]
