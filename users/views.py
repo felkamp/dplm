@@ -5,6 +5,8 @@ from django.contrib.auth import login
 from .forms import *
 from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from recommender.scripts.recommended_movies import get_rec_movies
 
 
 # Create your views here.
@@ -38,3 +40,12 @@ def login_page(request):
     else:
         form = LoginForm()
     return render(request, 'users/login_page.html', context={'form': form})
+
+
+@login_required
+def profile_page(request):
+    user = request.user
+    recommended_movies = get_rec_movies(user)
+    rated_movies_count = user.rating_set.count()
+    return render(request, 'users/profile_page.html',
+                  context={"rated_movies_count": rated_movies_count, "recommended_movies": recommended_movies})
