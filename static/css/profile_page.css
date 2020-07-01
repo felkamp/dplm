@@ -1,0 +1,39 @@
+.column{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.user-info{
+    margin: 0;
+    padding: 10px 30px;
+}
+
+.fix-width{
+    width: 790px;
+}
+
+.profile-info{
+    margin-right: 10px;
+    width: 400px;
+    color: white;
+}
+
+.profile-info,
+.recommended-movies{
+    background-color: #242424;
+}
+
+.profile-info img{
+    width: 100%;
+}
+
+.recommended-movies{
+    padding: 0 30px;
+}
+
+.recommended-movies h2{
+    color: white;
+    margin: 0;
+    padding: 15px;
+}
