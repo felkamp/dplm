@@ -6,4 +6,5 @@ urlpatterns = [
     path('login/', login_page, name="login_page_url"),
     path('logout/', auth_view.LogoutView.as_view(template_name='users/logout_page.html'), name="logout_page_url"),
     path('register/', register_page, name="register_page_url"),
+    path('profile/', profile_page, name="profile_page_url")
 ]
