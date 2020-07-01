@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+{% load static %}
+
+    <div class="column">
+        <section class="profile-info">
+            <img src="{% static 'img/profile-photo.png' %}" alt="">
+            <p class="user-info">
+                пользователь: {{user.username}}<br>
+                Дата регистрации: {{user.date_joined|date:'d-m-Y'}}<br>
+                фильмов оценено: {{rated_movies_count}}<br>
+                <a href="">
+                    [перейти к списку]
+                </a>
+            </p>
+        </section>
+
+        <section class="recommended-movies">
+            <h2 class="section-title">
+                Рекомендуемые фильмы
+            </h2>
+            <div class="regular slick fix-width">
+                {% for movie in recommended_movies %}
+                    <div class="movie-wrapper">
+                        <div class="vote-average">
+                            {{ movie.vote_average|floatformat }}
+                        </div>
+                        <a href="{{movie.get_absolute_url}}">
+                            <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+{% endblock %}
